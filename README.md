@@ -1,16 +1,145 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🌤️ Weather App
 
-Currently, two official plugins are available:
+### A modern and responsive weather forecast application built with React.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<p>
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+</p>
 
-## React Compiler
+<br>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<a href="https://weather-forecast-app-one-gold.vercel.app/">
+  <img src="https://img.shields.io/badge/🌤️_Live_Demo-Open_Weather_App-000000?style=for-the-badge" />
+</a>
 
-## Expanding the ESLint configuration
+</div>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📸 Preview
+
+<div align="center">
+
+<img src="./public/weather-preview.png" width="850" alt="Weather App Preview">
+
+</div>
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🌍 City Search
+
+Search for weather information by city name.
+
+</td>
+
+<td width="50%">
+
+### 📍 Current Location
+
+Get weather information using your device's location.
+
+</td>
+</tr>
+
+<tr>
+<td width="50%">
+
+### 🌡️ Current Weather
+
+View the current temperature and weather condition.
+
+</td>
+
+<td width="50%">
+
+### 📅 5-Day Forecast
+
+View upcoming weather conditions and temperatures.
+
+</td>
+</tr>
+
+<tr>
+<td width="50%">
+
+### 💨 Weather Details
+
+View humidity, wind speed, visibility and other details.
+
+</td>
+
+<td width="50%">
+
+### 🔄 Temperature Conversion
+
+Switch between Celsius and Fahrenheit.
+
+</td>
+</tr>
+
+<tr>
+<td width="50%">
+
+### 📱 Responsive Design
+
+Optimized for mobile, tablet and desktop devices.
+
+</td>
+
+<td width="50%">
+
+### 💾 Local Storage
+
+Remembers the user's selected location.
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=react,js,tailwind,vite,html,css,git,github" />
+
+</div>
+
+---
+
+## 🌐 APIs Used
+
+| API | Purpose |
+|---|---|
+| 🌤️ Open-Meteo Weather API | Fetch weather data |
+| 🌍 Open-Meteo Geocoding API | Search and locate cities |
+| 📍 Browser Geolocation API | Detect user's current location |
+
+---
+
+## 🧠 React Concepts Used
+
+```text
+⚛️ React Components
+🪝 useState
+🪝 useEffect
+🌐 Context API
+🔄 API Requests
+📍 Geolocation API
+💾 LocalStorage
+⚡ Async / Await
+🎨 Tailwind CSS
+📱 Responsive Design
+
