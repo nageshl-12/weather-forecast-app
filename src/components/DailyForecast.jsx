@@ -28,26 +28,36 @@ function DailyForecast() {
           {getWeatherEmoji(dailyData.weather_code[i])}
           <br />
 
-          <div className="flex flex-col items-center justify-center leading-tight">
-            <b className="font-semibold">
-              {weatherState === "F"
-                ? `${Math.ceil(
-                    celsiusToFahrenheit(
-                      Math.round(dailyData.temperature_2m_max[i]),
-                    ),
-                  )}°`
-                : `${Math.round(dailyData.temperature_2m_max[i])}°`}
-            </b>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-0 sm:gap-2">
+            {weatherState === "F" ? (
+              <b className="font-semibold">
+                {Math.ceil(
+                  celsiusToFahrenheit(
+                    Math.round(dailyData.temperature_2m_max[i]),
+                  ),
+                )}
+                °
+              </b>
+            ) : (
+              <b className="font-semibold">
+                {Math.round(dailyData.temperature_2m_max[i])}°
+              </b>
+            )}
 
-            <b className="font-light">
-              {weatherState === "F"
-                ? `${Math.ceil(
-                    celsiusToFahrenheit(
-                      Math.round(dailyData.temperature_2m_min[i]),
-                    ),
-                  )}°`
-                : `${Math.round(dailyData.temperature_2m_min[i])}°`}
-            </b>
+            {weatherState === "F" ? (
+              <b className="font-light">
+                {Math.ceil(
+                  celsiusToFahrenheit(
+                    Math.round(dailyData.temperature_2m_min[i]),
+                  ),
+                )}
+                °
+              </b>
+            ) : (
+              <b className="font-light">
+                {Math.round(dailyData.temperature_2m_min[i])}°
+              </b>
+            )}
           </div>
         </span>
       ))}
