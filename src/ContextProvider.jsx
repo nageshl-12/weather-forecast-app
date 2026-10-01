@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import context from "./Context";
 
 function ContextProvider({ children }) {
   const [weatherState, setWeatherState] = useState("C");
   const [searchQuery, setSearchQuery] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  const [isLoading, setIsloading] = useState(false);
+  const [isLoading, setIsloading] = useState(true);
+  const initialLoad = useRef(true);
   const [timeAndDate, setTimeAndDate] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
@@ -35,18 +36,15 @@ function ContextProvider({ children }) {
     );
   }
   function handleClick() {
-    setIsloading(true);
     setError("");
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
-        setIsloading(false);
       },
       (err) => {
         setError(err.message);
-        setIsloading(false);
       },
     );
   }
@@ -54,12 +52,10 @@ function ContextProvider({ children }) {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        // User allowed location
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       },
       () => {
-        // User denied location → fallback to Bengaluru
         setSearchQuery("Bengaluru");
       },
     );
@@ -99,7 +95,6 @@ function ContextProvider({ children }) {
 
     async function getCityCoord() {
       try {
-        setIsloading(true);
         setError("");
 
         const res = await fetch(
@@ -126,8 +121,6 @@ function ContextProvider({ children }) {
         setCity(result.name);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setIsloading(false);
       }
     }
 
@@ -139,7 +132,6 @@ function ContextProvider({ children }) {
 
     async function fetchWeatherData() {
       try {
-        setIsloading(true);
         setError("");
         setTimeAndDate(formatCurrentDateTime());
 
@@ -154,10 +146,20 @@ function ContextProvider({ children }) {
         const data = await res.json();
 
         setWeatherData(data);
+
+        if (initialLoad.current) {
+          setIsloading(false);
+          initialLoad.current = false;
+        }
+
+        setWeatherData(data);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setIsloading(false);
+
+        if (initialLoad.current) {
+          setIsloading(false);
+          initialLoad.current = false;
+        }
       }
     }
 
