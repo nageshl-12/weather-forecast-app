@@ -99,10 +99,6 @@ Optimized for mobile, tablet and desktop devices.
 
 <td width="50%">
 
-### 💾 Local Storage
-
-Remembers the user's selected location.
-
 </td>
 </tr>
 </table>
